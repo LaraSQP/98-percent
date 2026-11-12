@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Required for foreground battery monitoring on Android 9 and newer. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Required for the special-use foreground service on Android 14 and newer. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Allows BatteryMonitorRestartReceiver to run after normal device boot. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Allows the application to display battery status notifications on Android 13 and newer. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="98%"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BatteryWidget.Dialog">
+
+        <receiver
+            android:name=".BatteryWidgetProvider"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/battery_widget_info" />
+        </receiver>
+
+        <!--
+            Restores battery monitoring after device reboot and after the application APK is replaced by an update.
+        -->
+        <receiver
+            android:name=".BatteryMonitorRestartReceiver"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Performs brief watchdog health checks every approximately 20 minutes. -->
+        <receiver
+            android:name=".BatteryMonitorWatchdog"
+            android:exported="false" />
+
+        <!--
+            Keeps the dynamically registered battery receiver alive while at least one battery widget exists.
+        -->
+        <service
+            android:name=".BatteryMonitorService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps a user-installed battery percentage widget synchronized with the current battery charge level." />
+        </service>
+
+        <activity
+            android:name=".ConfigActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BatteryWidget.Dialog" />
+
+    </application>
+
+</manifest>

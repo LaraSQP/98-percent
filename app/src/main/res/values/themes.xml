@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main application theme. -->
+    <style name="Theme.BatteryWidget" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!--
+        Full-screen transparent theme used by ConfigActivity.
+
+        ConfigActivity is intentionally not an Android floating dialog. Its
+        layout provides its own centred settings panel and an outside area that
+        can reliably receive taps and cancel configuration.
+    -->
+    <style name="Theme.BatteryWidget.Dialog" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+
+        <!-- Configuration-panel colours. -->
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#FFFFFF</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="android:editTextColor">#FFFFFF</item>
+        <item name="android:textColorHint">#AAAAAA</item>
+    </style>
+
+</resources>

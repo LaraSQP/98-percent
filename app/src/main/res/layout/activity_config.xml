@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/config_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!--
+        This panel is deliberately a child of the full-screen overlay.
+
+        A tap inside this panel is handled by the panel and its controls. A tap
+        outside reaches config_overlay, which cancels and closes the activity.
+    -->
+    <LinearLayout
+        android:id="@+id/config_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- App name and version -->
+        <TextView
+            android:id="@+id/app_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:gravity="center"
+            android:padding="5sp"
+            android:text="98% v1.00"
+            android:textColor="#CCCCCC"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:background="#CCCCCC" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_restore_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#EEEEEE"
+            android:backgroundTint="#315C82"
+            app:cornerRadius="12dp"
+            android:text="Show notification"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <!-- Background color -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Background color"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <FrameLayout
+                android:id="@+id/preview_bg"
+                android:layout_width="48dp"
+                android:layout_height="36dp"
+                android:background="#BBBBBB"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="1dp">
+
+                <View
+                    android:id="@+id/preview_bg_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#000000" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Text color -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Text color"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <FrameLayout
+                android:id="@+id/preview_fg"
+                android:layout_width="48dp"
+                android:layout_height="36dp"
+                android:background="#BBBBBB"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="1dp">
+
+                <View
+                    android:id="@+id/preview_fg_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#EEEEEE" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Border color -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Border color"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <FrameLayout
+                android:id="@+id/preview_border"
+                android:layout_width="48dp"
+                android:layout_height="36dp"
+                android:background="#BBBBBB"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="1dp">
+
+                <View
+                    android:id="@+id/preview_border_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#66965E" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Border width -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:text="Border width"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/border_width"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="8"
+                android:inputType="number"
+                android:textColor="#CCCCCC"
+                android:textColorHint="#AAAAAA"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <!-- Font size -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Font size"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/font_size"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:hint="22"
+                android:inputType="number"
+                android:textColor="#CCCCCC"
+                android:textColorHint="#AAAAAA"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <!-- Shape choice -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:text="Shape"
+                android:textColor="#CCCCCC"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/shape_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/shape_square"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:buttonTint="#CCCCCC"
+                    android:text="Square"
+                    android:textColor="#CCCCCC"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <RadioButton
+                    android:id="@+id/shape_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#CCCCCC"
+                    android:checked="true"
+                    android:text="Circle"
+                    android:textColor="#CCCCCC"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="#CCCCCC" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#336A2A"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="#EEEEEE"
+            app:cornerRadius="8dp"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</FrameLayout>

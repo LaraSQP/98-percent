@@ -1,0 +1,33 @@
+*.iml
+..out/
+.gradle/
+.idea/
+.kotlin/
+.DS_Store
+/build
+/app/build
+/app/releases
+/captures
+.externalNativeBuild
+.cxx
+/app/src/androidTest
+/app/src/test
+
+# Signing keys
+/keystore/
+keystore.properties
+
+# Local configuration
+local.properties
+
+# Gradle
+.gradle/
+**/build/
+
+# Android Studio
+.idea/
+*.iml
+
+# Build artifacts
+*.apk
+*.aab
