@@ -1,6 +1,6 @@
 # 98%
 
-98% is an Android battery percentage home-screen widget with customizable appearance.
+98% is an Android battery home-screen widget with customizable appearance and optional notification.
 
 Users can configure the widget's
 

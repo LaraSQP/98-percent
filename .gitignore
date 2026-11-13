@@ -21,12 +21,7 @@ keystore.properties
 local.properties
 
 # Gradle
-.gradle/
 **/build/
-
-# Android Studio
-.idea/
-*.iml
 
 # Build artifacts
 *.apk
