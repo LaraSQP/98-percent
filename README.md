@@ -39,5 +39,3 @@ Android may display a security warning because the app was obtained outside Goog
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-Copyright © 2026 LaraSQP.
